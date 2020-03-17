@@ -4,6 +4,7 @@
   "private": true,
   "description": "Handy HTML template editor for Handlebars, Liquid, EJS, etc.",
   "repository": "saasify-sh/template-editor",
+  "homepage": "https://saasify-sh.github.io/template-editor",
   "author": "Saasify <dev@saasify.sh>",
   "license": "MIT",
   "engines": {
@@ -13,7 +14,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "run-s build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@rehooks/local-storage": "^2.1.1",
@@ -28,6 +31,7 @@
     "react-ace": "^8.0.0",
     "react-dom": "^16.12.0",
     "react-frame-component": "^4.1.1",
+    "react-props": "^0.0.3",
     "react-scripts": "3.3.0",
     "react-select": "^3.0.8",
     "react-spinners": "^0.8.1",
@@ -48,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "npm-run-all": "^4.1.5"
   }
 }
