@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useDebounce } from 'use-debounce'
 import { Liquid } from 'liquidjs'
 
+import raw from 'raw.macro'
 import debounce from 'lodash.debounce'
 import handlebars from 'handlebars'
 import copy from 'clipboard-copy'
@@ -25,9 +26,16 @@ import 'ace-builds/src-noconflict/theme-monokai'
 
 import './App.css'
 
-import htmlExample from './html-example'
-import cssExample from './css-example'
 import logo from './logo.svg'
+import github from './github.svg'
+
+const exampleHelloWorldHtml = raw('./examples/hello-world.hbs')
+const exampleHelloWorldCss = raw('./examples/hello-world.css')
+const exampleHelloWorldData = raw('./examples/hello-world.json')
+
+const exampleRealEstateHtml = raw('./examples/real-estate.hbs')
+const exampleRealEstateCss = raw('./examples/real-estate.css')
+const exampleRealEstateData = raw('./examples/real-estate.json')
 
 handlebars.registerHelper('json', function(obj) {
   return new handlebars.SafeString(JSON.stringify(obj))
@@ -39,6 +47,25 @@ const engines = [
   { value: 'html', label: 'HTML' },
   { value: 'handlebars', label: 'Handlebars' },
   { value: 'liquid', label: 'Liquid' }
+]
+
+const examples = [
+  {
+    value: 'hello-world',
+    label: 'Hello World',
+    engine: 'handlebars',
+    html: exampleHelloWorldHtml,
+    css: exampleHelloWorldCss,
+    data: exampleHelloWorldData
+  },
+  {
+    value: 'real-estate',
+    label: 'Real Estate Gallery',
+    engine: 'handlebars',
+    html: exampleRealEstateHtml,
+    css: exampleRealEstateCss,
+    data: exampleRealEstateData
+  }
 ]
 
 function compile({ html, data, engine }) {
@@ -213,9 +240,9 @@ const App = () => {
   const [storedData] = useLocalStorage('data')
   const [storedEngine] = useLocalStorage('engine')
 
-  const [html, setHtml] = useState(storedHtml || htmlExample)
-  const [css, setCss] = useState(storedCss || cssExample)
-  const [data, setData] = useState(storedData || { title: 'Hello, World!' })
+  const [html, setHtml] = useState(storedHtml || exampleHelloWorldHtml)
+  const [css, setCss] = useState(storedCss || exampleHelloWorldCss)
+  const [data, setData] = useState(storedData || exampleHelloWorldData)
   const [dataJson, setDataJson] = useState(JSON.stringify(data, null, 2))
   const [engine, setEngine] = useState(storedEngine || 'handlebars')
 
@@ -251,6 +278,9 @@ const App = () => {
 
   console.log(engine)
   const currentEngine = engines.find((e) => e.value === engine)
+  const currentExamples = examples.filter(
+    (example) => example.engine === engine
+  )
 
   return (
     <div className='App'>
@@ -269,13 +299,33 @@ const App = () => {
 
         <div className='Header-actions'>
           <div className='Header-action'>
-            <a
-              href='https://github.com/saasify-sh/template-editor'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              GitHub
-            </a>
+            <Select
+              className='Header-engines'
+              name='Template Engine'
+              value={currentEngine}
+              onChange={(val) => setEngine(val.value)}
+              options={engines}
+              styles={{ container: (base) => ({ ...base, zIndex: 9999 }) }}
+            />
+          </div>
+
+          <div className='Header-action'>
+            <Select
+              className='Header-examples'
+              name='Example'
+              placeholder='Select Example'
+              value={null}
+              onChange={(val) => {
+                console.log(val)
+                setHtml(val.html)
+                setCss(val.css)
+                setData(JSON.parse(val.data))
+                setDataJson(val.data)
+              }}
+              styles={{ container: (base) => ({ ...base, zIndex: 9999 }) }}
+              options={currentExamples}
+              disabled={!currentExamples.length}
+            />
           </div>
 
           <div className='Header-action'>
@@ -287,13 +337,13 @@ const App = () => {
           </div>
 
           <div className='Header-action'>
-            <Select
-              className='Header-engines'
-              name='Template Engine'
-              value={currentEngine}
-              onChange={(val) => setEngine(val.value)}
-              options={engines}
-            />
+            <a
+              href='https://github.com/saasify-sh/template-editor'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <img src={github} alt='GitHub' />
+            </a>
           </div>
         </div>
       </header>

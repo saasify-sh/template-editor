@@ -1,0 +1,84 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato&family=Quicksand&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="body">
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+  <section class="gallery">
+    {{#data.content}}
+    <div class="gallery-item">
+      <img src="{{Image}}" data-zoomable />
+
+      <div class="type">{{Type}}</div>
+      <div class="price">{{Price}}</div>
+      <div class="address">{{Address}}</div>
+    </div>
+    {{/data.content}}
+  </section>
+
+  <section id="map"></section>
+
+  <footer></footer>
+</div>
+
+<script>
+  function initMediumZoom() {
+    eval("mediumZoom('[data-zoomable]')")
+  }
+</script>
+
+<script>
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 2,
+      mapTypeId: 'roadmap'
+    })
+
+    const content = {{json data.content}};
+    const bounds = new google.maps.LatLngBounds()
+    for (const item of content) {
+      if (item.lat !== undefined && item.lng !== undefined) {
+        const latLng = new google.maps.LatLng(item.lat, item.lng)
+        const marker = new google.maps.Marker({ position: latLng, map })
+        bounds.extend(latLng)
+
+        const content = `
+  <div class="gallery-item">
+    <img src="${item.Image}" data-zoomable />
+
+    <div class="type">${item.Type || ""}</div>
+    <div class="price">${item.price || ""}</div>
+    <div class="address">${item.Address || ""}</div>
+  </div>
+  `
+        const info = new google.maps.InfoWindow({
+          content,
+          maxWidth: 320
+        })
+
+        marker.addListener('click', function() {
+          info.open(map, marker)
+        });
+      }
+    }
+
+    map.fitBounds(bounds)
+  }
+</script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.5/dist/medium-zoom.min.js"
+  onload="initMediumZoom();"
+></script>
+
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwMxW41-GjC_2n8-bzpbj_eUQz1lGT8uc"
+  type="text/javascript"
+  onload="initMap()"
+></script>

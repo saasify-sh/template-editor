@@ -108,13 +108,12 @@ iframe {
 }
 
 .Header-action {
-  margin-left: 32px;
+  margin-left: 1em;
   font-weight: 600;
 }
 
 .Header-action a {
   color: #ffffff;
-  padding: 8px;
   text-decoration: none;
 }
 
@@ -170,7 +169,8 @@ iframe {
   height: 100%;
 }
 
-.Header-logo img {
+.Header-logo img,
+.Header-action img {
   max-height: 40px;
 }
 
@@ -181,10 +181,20 @@ iframe {
   margin: 0 0.3em;
 }
 
-.Header-engines {
+.Header-engines,
+.Header-examples {
   min-width: 200px;
+}
+
+.Header-engines:hover,
+.Header-examples:hover {
+  cursor: pointer;
 }
 
 .ace-monokai .ace_print-margin {
   display: none;
+}
+
+.Select-menu-outer {
+  z-index: 999 !important;
 }

@@ -1,4 +1,4 @@
-export default `.body {
+.body {
   align-items: center;
   background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.50) 100%), url("https://source.unsplash.com/WLUHO9A_xik");
   background-size: cover;
@@ -17,4 +17,3 @@ h1 {
   font-weight: 700;
   margin: 0;
 }
-`;
