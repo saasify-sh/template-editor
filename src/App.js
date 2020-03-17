@@ -227,8 +227,11 @@ body, html, .frame-root, .frame-content, .frame-content > div {
 }
 
 const debouncedWriteStorage = debounce(
-  async (data, label) => {
-    writeStorage(label, data)
+  async ({ html, css, data, engine }) => {
+    writeStorage('html', html)
+    writeStorage('css', css)
+    writeStorage('data', data)
+    writeStorage('engine', engine)
   },
   1000,
   { maxWait: 5000 }
@@ -261,20 +264,8 @@ const App = () => {
   }, [html, css, data, engine])
 
   useEffect(() => {
-    debouncedWriteStorage(html, 'html')
-  }, [html])
-
-  useEffect(() => {
-    debouncedWriteStorage(css, 'css')
-  }, [css])
-
-  useEffect(() => {
-    debouncedWriteStorage(data, 'data')
-  }, [data])
-
-  useEffect(() => {
-    debouncedWriteStorage(engine, 'engine')
-  }, [engine])
+    debouncedWriteStorage({ html, css, data, engine })
+  }, [html, css, data, engine])
 
   const currentEngine = engines.find((e) => e.value === engine)
   const currentExamples = examples.filter(
