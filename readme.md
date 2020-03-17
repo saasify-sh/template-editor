@@ -1,6 +1,6 @@
 [![](https://raw.githubusercontent.com/saasify-sh/template-editor/master/screenshot.jpg)](https://saasify-sh.github.io/template-editor/)
 
-# [Template Editor](https://saasify-sh.github.io/template-editor/)
+# Template Editor
 
 > HTML template editor for quickly working with handlebars and liquid templates. ([view online](https://saasify-sh.github.io/template-editor/))
 
