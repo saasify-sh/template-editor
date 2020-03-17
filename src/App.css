@@ -1,0 +1,190 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: rgb(23, 24, 31);
+  height: 100%;
+  font-family: 'Avenir Next', 'Helvetica Neue', sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+iframe {
+  border: none;
+}
+
+.Preview {
+  background: white;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.Preview-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  justify-content: center;
+}
+
+.Preview-itemContent {
+  align-items: center;
+  display: flex;
+  padding: 16px;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.Preview-frame {
+  background: white;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  align-self: center;
+  box-shadow: rgb(0, 0, 0) 0px 2px 16px;
+}
+
+.Editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.Editor-title,
+.Preview-title {
+  background-color: #404040;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.Preview-item:first-of-type {
+  background: #16171d;
+}
+
+.Preview-subtitle {
+  background-color: rgb(236, 236, 236);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 16px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.Preview-subtitle::-webkit-scrollbar {
+  display: none;
+}
+
+#HTMLEditor,
+#CSSEditor,
+#JSONEditor {
+  flex-grow: 1;
+}
+
+.Header {
+  display: flex;
+  padding: 8px 16px;
+}
+
+.Header-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.Header-action {
+  margin-left: 32px;
+  font-weight: 600;
+}
+
+.Header-action a {
+  color: #ffffff;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.Header-action a:hover {
+  opacity: 0.8;
+}
+
+.Button {
+  appearance: none;
+  background: rgb(121, 43, 230);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+}
+
+.Button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.Button-spinner {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  bottom: 0;
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Resizer {
+  cursor: ew-resize;
+  background: rgb(111, 111, 111);
+  width: 4px;
+}
+
+.Header-logo {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  height: 100%;
+}
+
+.Header-logo img {
+  max-height: 40px;
+}
+
+.Header-logoProduct {
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0.3em;
+}
+
+.Header-engines {
+  min-width: 200px;
+}
+
+.ace-monokai .ace_print-margin {
+  display: none;
+}

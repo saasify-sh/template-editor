@@ -1,0 +1,50 @@
+{
+  "name": "template-editor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Handy HTML template editor for Handlebars, Liquid, EJS, etc.",
+  "repository": "saasify-sh/template-editor",
+  "author": "Saasify <dev@saasify.sh>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@rehooks/local-storage": "^2.1.1",
+    "ace-builds": "^1.4.8",
+    "clipboard-copy": "^3.1.0",
+    "dangerously-set-html-content": "^1.0.3",
+    "handlebars": "^4.7.2",
+    "liquidjs": "^9.11.3",
+    "lodash.debounce": "^4.0.8",
+    "normalize.css": "^8.0.1",
+    "react": "^16.12.0",
+    "react-ace": "^8.0.0",
+    "react-dom": "^16.12.0",
+    "react-frame-component": "^4.1.1",
+    "react-scripts": "3.3.0",
+    "react-select": "^3.0.8",
+    "react-spinners": "^0.8.1",
+    "react-split-pane": "^0.1.89",
+    "react-toastify": "^5.5.0",
+    "use-debounce": "^3.3.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
