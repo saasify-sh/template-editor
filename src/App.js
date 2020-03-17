@@ -249,14 +249,14 @@ const App = () => {
   const copyTemplate = useCallback(async () => {
     return copy(render({ html, css, data, engine, compile: false })).then(
       () => {
-        toast.info(`Copied ${engine} template to clipboard`)
+        toast.info(`Copied ${engine} template file to clipboard`)
       }
     )
   }, [html, css, data, engine])
 
   const copyOutput = useCallback(async () => {
     return copy(render({ html, css, data, engine, compile: true })).then(() => {
-      toast.info('️Copied output to clipboard')
+      toast.info('️Copied output HTML file to clipboard')
     })
   }, [html, css, data, engine])
 
