@@ -276,7 +276,6 @@ const App = () => {
     debouncedWriteStorage(engine, 'engine')
   }, [engine])
 
-  console.log(engine)
   const currentEngine = engines.find((e) => e.value === engine)
   const currentExamples = examples.filter(
     (example) => example.engine === engine
@@ -316,7 +315,6 @@ const App = () => {
               placeholder='Select Example'
               value={null}
               onChange={(val) => {
-                console.log(val)
                 setHtml(val.html)
                 setCss(val.css)
                 setData(JSON.parse(val.data))
