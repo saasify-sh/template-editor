@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/saasify-sh/template-editor/master/screenshot.jpg)
+[![](https://raw.githubusercontent.com/saasify-sh/template-editor/master/screenshot.jpg)](https://saasify-sh.github.io/template-editor/)
 
 # [Template Editor](https://saasify-sh.github.io/template-editor/)
 
@@ -12,7 +12,7 @@
 - Super simple
 - Supports handlebars and liquid templates
 - Comes with a few example templates
-- Stage is stored in localstorage
+- State is saved in localstorage
 - Useful for quickly designing single page & iframe templates
 
 ## License
