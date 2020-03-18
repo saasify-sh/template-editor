@@ -40,6 +40,8 @@
 
     const content = {{json data.content}};
     const bounds = new google.maps.LatLngBounds()
+    let openInfo = null
+    
     for (const item of content) {
       if (item.lat !== undefined && item.lng !== undefined) {
         const latLng = new google.maps.LatLng(item.lat, item.lng)
@@ -61,7 +63,12 @@
         })
 
         marker.addListener('click', function() {
+          if (openInfo) {
+            openInfo.close()
+          }
+          
           info.open(map, marker)
+          openInfo = info
         });
       }
     }
@@ -72,7 +79,7 @@
 
 <script
   src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.5/dist/medium-zoom.min.js"
-  onload="initMediumZoom();"
+  onload="initMediumZoom()"
 ></script>
 
 <script
