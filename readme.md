@@ -20,3 +20,5 @@
 This project started as a fork of [og-impact-editor](https://github.com/chrisvxd/og-impact-editor) by [Chris Villa](https://github.com/chrisvxd).
 
 MIT © [Saasify](https://saasify.sh)
+
+Support my OSS work by <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
