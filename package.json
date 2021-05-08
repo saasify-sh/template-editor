@@ -23,7 +23,7 @@
     "ace-builds": "^1.4.8",
     "clipboard-copy": "^3.1.0",
     "dangerously-set-html-content": "^1.0.3",
-    "handlebars": "^4.7.2",
+    "handlebars": "^4.7.7",
     "liquidjs": "^9.11.3",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",
